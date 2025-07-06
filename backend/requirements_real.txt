@@ -1,0 +1,39 @@
+# Core FastAPI dependencies
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+
+# Data processing
+pandas==2.1.4
+openpyxl==3.1.2
+numpy==1.26.3
+
+# Progress bars
+tqdm==4.66.1
+
+# LangChain for RAG
+langchain==0.1.6
+langchain-community==0.0.20
+sentence-transformers==2.3.1
+faiss-cpu==1.7.4
+
+# Ollama client
+ollama==0.1.7
+
+# Async support
+asyncio==3.4.3
+aiofiles==23.2.1
+
+# API client for testing
+requests==2.31.0
+
+# WebSocket support
+websockets==12.0
+
+# Basic utilities
+python-multipart==0.0.6
+python-dotenv==1.0.0
+
+# Visualization (for metrics)
+matplotlib==3.8.2
+seaborn==0.13.1

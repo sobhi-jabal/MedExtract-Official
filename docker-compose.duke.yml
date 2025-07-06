@@ -1,0 +1,47 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile.real
+    volumes:
+      - ./backend:/app
+      - ./output:/app/output
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Use host's Ollama installation instead of container
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - medextract-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    networks:
+      - medextract-net
+    restart: unless-stopped
+
+# Ollama service removed - using host's Ollama installation
+
+networks:
+  medextract-net:
+    driver: bridge
