@@ -25,7 +25,7 @@ MedExtract is a powerful, AI-driven platform for extracting structured data from
 ### Windows Installation
 
 1. **Download the installer**
-   - Download `MEDEXTRACT-INSTALL.bat` from the [Releases](https://github.com/your-org/medextract/releases) page
+   - Download `MEDEXTRACT-INSTALL.bat` from the [Releases](https://github.com/sobhi-jabal/MedExtract-Official/releases) page
 
 2. **Run as Administrator**
    - Right-click `MEDEXTRACT-INSTALL.bat`
@@ -42,13 +42,34 @@ MedExtract is a powerful, AI-driven platform for extracting structured data from
    - Open browser to http://localhost:3000
    - Or use the desktop shortcut
 
+### macOS/Linux Installation
+
+1. **Download and extract**
+   - Download the source archive from the [Releases](https://github.com/sobhi-jabal/MedExtract-Official/releases) page
+   - Extract to your desired location
+
+2. **Run the installer**
+   ```bash
+   cd medextract
+   ./installer/install.sh
+   ```
+
+3. **Follow the prompts**
+   - The installer will check for Docker
+   - Build and configure MedExtract
+   - Create management scripts
+
+4. **Access the application**
+   - Open browser to http://localhost:3000
+   - Use the created scripts to start/stop
+
 ### Manual Installation
 
-For advanced users or non-Windows systems:
+For advanced users:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/medextract.git
+# Extract the archive
+tar -xzf medextract-v1.0.0.tar.gz
 cd medextract
 
 # Build and start services
