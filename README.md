@@ -1,160 +1,95 @@
-# MedExtract - Medical Report Data Extraction Platform
+# MedExtract
 
-MedExtract is a powerful, AI-driven platform for extracting structured data from unstructured medical reports. Built with modern technologies and designed for institutional use, it provides a user-friendly interface for healthcare professionals and researchers.
+## Overview
+
+MedExtract extracts structured data from unstructured medical reports using large language models. All processing occurs locally within your institution.
+
+## Clinical Applications
+
+- Clinical research: retrospective cohort identification, data collection
+- Quality assurance: documentation review for compliance
+- Registry population: automated data extraction
+- Outcomes research: structured data from narrative reports
+
+Supports radiology reports, pathology reports, clinical notes, operative reports, and consultation reports.
+
+## Requirements
+
+- Operating System: Windows 10/11, macOS 10.15+, Linux (Ubuntu 20.04+, RHEL 8+)
+- Memory: 16 GB RAM minimum (32 GB recommended)
+- Storage: 50 GB available
+- Processor: x86_64, 4+ cores
+- Docker Desktop 4.0+ or Docker Engine 20.10+
+
+Processing speed: 100-500 reports/hour depending on hardware.
+
+## Installation
+
+### Windows
+1. Download installer from [Releases](https://github.com/sobhi-jabal/MedExtract-Official/releases)
+2. Run as administrator
+3. Follow prompts
+4. Access at http://localhost:3000
+
+### macOS/Linux
+1. Download archive from [Releases](https://github.com/sobhi-jabal/MedExtract-Official/releases)
+2. Extract: `tar -xzf MedExtract-*.tar.gz`
+3. Install: `cd MedExtract-* && sudo ./installer/install.sh`
+4. Access at http://localhost:3000
+
+## Documentation
+
+- [Installation Guide](docs/INSTALLATION_GUIDE.md)
+- [Clinical User Guide](docs/CLINICAL_USER_GUIDE.md)
+- [System Requirements](docs/SYSTEM_REQUIREMENTS.md)
+- [Data Privacy & Security](docs/DATA_PRIVACY_SECURITY.md)
+- API Documentation: http://localhost:8000/docs (after installation)
 
 ## Features
 
-- **AI-Powered Extraction**: Utilizes state-of-the-art language models for accurate data extraction
-- **Flexible Configuration**: Customize extraction parameters and datapoints
-- **Batch Processing**: Process multiple reports simultaneously
-- **Real-time Progress**: Monitor extraction progress with live updates
-- **Multiple Export Formats**: Export results as CSV or Excel files
-- **RAG Support**: Optional Retrieval-Augmented Generation for improved accuracy
-- **Corporate Network Ready**: Works behind firewalls and with proxy settings
+- Configure custom data extraction fields
+- Batch processing of multiple documents
+- Validation against ground truth data
+- Export to CSV or Excel formats
+- Multiple model options for different use cases
+- Configurable parameters for optimization
 
-## System Requirements
+## Privacy and Security
 
-- Windows 10/11 (64-bit)
-- 16GB RAM minimum (32GB recommended)
-- 50GB free disk space
-- Administrator privileges for installation
-- Docker Desktop installed and running
+- All processing occurs locally
+- No external data transmission
+- Containerized architecture for isolation
+- Audit logging for compliance
+- Functions in air-gapped environments
+- HIPAA-compliant deployment options
 
-## Quick Start
+## Citation
 
-### Windows Installation
-
-1. **Download the installer**
-   - Download `MEDEXTRACT-INSTALL.bat` from the [Releases](https://github.com/sobhi-jabal/MedExtract-Official/releases) page
-
-2. **Run as Administrator**
-   - Right-click `MEDEXTRACT-INSTALL.bat`
-   - Select "Run as administrator"
-
-3. **Follow the installer**
-   - The installer will automatically:
-     - Check system requirements
-     - Install MedExtract
-     - Configure for your environment
-     - Create desktop shortcuts
-
-4. **Access the application**
-   - Open browser to http://localhost:3000
-   - Or use the desktop shortcut
-
-### macOS/Linux Installation
-
-1. **Download and extract**
-   - Download the source archive from the [Releases](https://github.com/sobhi-jabal/MedExtract-Official/releases) page
-   - Extract to your desired location
-
-2. **Run the installer**
-   ```bash
-   cd medextract
-   ./installer/install.sh
-   ```
-
-3. **Follow the prompts**
-   - The installer will check for Docker
-   - Build and configure MedExtract
-   - Create management scripts
-
-4. **Access the application**
-   - Open browser to http://localhost:3000
-   - Use the created scripts to start/stop
-
-### Manual Installation
-
-For advanced users:
-
-```bash
-# Extract the archive
-tar -xzf medextract-v1.0.0.tar.gz
-cd medextract
-
-# Build and start services
-docker-compose build
-docker-compose up -d
-
-# Access at http://localhost:3000
+```bibtex
+@software{medextract2024,
+  title = {MedExtract: Automated Data Extraction from Clinical Reports},
+  version = {1.0.0},
+  year = {2024},
+  url = {https://github.com/sobhi-jabal/MedExtract-Official}
+}
 ```
-
-## Usage
-
-1. **Upload Data**
-   - Click "Create New Job"
-   - Upload CSV or Excel file containing medical reports
-   - Select the column containing report text
-
-2. **Configure Extraction**
-   - Define datapoints to extract
-   - Set extraction parameters
-   - Choose LLM model
-
-3. **Run Extraction**
-   - Click "Start Extraction"
-   - Monitor real-time progress
-   - Download results when complete
-
-## Architecture
-
-MedExtract consists of three main components:
-
-- **Frontend**: Next.js-based web interface
-- **Backend**: FastAPI server handling extraction logic
-- **LLM Service**: Ollama for running language models
-
-## Configuration
-
-### Environment Variables
-
-Create a `.env` file based on `.env.example`:
-
-```env
-# API Configuration
-API_URL=http://localhost:8000
-
-# Ollama Configuration
-OLLAMA_HOST=http://localhost:11434
-
-# Corporate Network (optional)
-HTTP_PROXY=http://proxy.company.com:8080
-HTTPS_PROXY=http://proxy.company.com:8080
-```
-
-### Docker Compose Variants
-
-- `docker-compose.yml`: Default configuration
-- `docker-compose.duke.yml`: Configuration for Duke Health systems
-- `docker-compose.real.yml`: Production configuration with Ollama
-
-## Troubleshooting
-
-### Docker Not Found
-- Ensure Docker Desktop is installed
-- Add Docker to system PATH
-- Restart after installation
-
-### Model Download Issues
-- Check internet connectivity
-- For corporate networks, use local Ollama
-- Configure proxy settings if needed
-
-### Port Conflicts
-- Default ports: 3000 (frontend), 8000 (backend)
-- Modify docker-compose.yml if conflicts exist
 
 ## Support
 
-For issues and questions:
-- Create an issue on GitHub
-- Contact the development team
-- Review documentation in `/docs`
+- Issues: [GitHub Issues](https://github.com/sobhi-jabal/MedExtract-Official/issues)
+- Documentation: See `docs/` directory
+- Version support: 24 months
+
+### Limitations
+- English language only
+- Text extraction only
+- Single-node deployment
+- Requires validation for clinical use
 
 ## License
 
-This project is licensed under the MIT License - see LICENSE file for details.
+MIT License - See LICENSE file for complete terms.
 
-## Acknowledgments
+---
 
-Developed by the MedExtract team for healthcare data extraction research.
+Version 1.0.0
