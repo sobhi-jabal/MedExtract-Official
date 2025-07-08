@@ -57,24 +57,32 @@ MedExtract extracts structured data from unstructured medical reports using larg
 
 ## Download
 
-### Windows
-- `MedExtract-Windows-x64-v1.0.0.exe` (485 MB)
-- SHA256: [To be provided]
+### Installation Files
+- `MEDEXTRACT-INSTALL.bat` - Windows batch installer (8.7 KB)
+  - SHA256: `48a123988dca98290624598496dad9c1099be0c772f377556ec6ddf30c9fe2e8`
+- `install.sh` - Unix/Linux/macOS installer script (8.2 KB)
+  - SHA256: `1f74c256c108f19c510fff6ea553dde2aa39873f59e8ab685416ad9f53cccf42`
 
-### macOS
-- `MedExtract-macOS-v1.0.0.tar.gz` (472 MB)
-- SHA256: [To be provided]
-
-### Linux
-- `MedExtract-Linux-x64-v1.0.0.tar.gz` (468 MB)
-- SHA256: [To be provided]
+### Source Code Archives
+- `medextract-v1.0.0.tar.gz` - Complete source code (295 KB)
+  - SHA256: `8802572b7eeb96a2dec6a382ebd369d1bae79c5bfdb1f0a981a0c836c41e4c3e`
+- `medextract-v1.0.0.zip` - Complete source code (158 KB)
+  - SHA256: `c6deb8b68c3a800260c5497ec3bdf2a459e9532fc0a7352f1e1ba3f6747b7ddf`
 
 ## Installation
 
+### Windows
 1. Verify system requirements
-2. Install Docker if not present
-3. Download installer for your platform
-4. Run installer with administrative privileges
+2. Install Docker Desktop
+3. Download and run `MEDEXTRACT-INSTALL.bat` as administrator
+4. Follow the installation prompts
+5. Access application at http://localhost:3000
+
+### macOS/Linux
+1. Verify system requirements  
+2. Install Docker
+3. Download and extract source archive (`medextract-v1.0.0.tar.gz`)
+4. Run `./install.sh` with sudo privileges
 5. Access application at http://localhost:3000
 
 Detailed instructions available in `docs/INSTALLATION_GUIDE.md`
